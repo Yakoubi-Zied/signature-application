@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="signatureLevel">
+            <h2><span jhiTranslate="signatureApplicationApp.signatureLevel.detail.title">Signature Level</span> {{ signatureLevel.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="signatureApplicationApp.signatureLevel.orgName">Org Name</span></dt>
+                <dd>
+                    <span>{{ signatureLevel.orgName }}</span>
+                </dd>
+                <dt><span jhiTranslate="signatureApplicationApp.signatureLevel.orgId">Org Id</span></dt>
+                <dd>
+                    <span>{{ signatureLevel.orgId }}</span>
+                </dd>
+                <dt><span jhiTranslate="signatureApplicationApp.signatureLevel.level1">Level 1</span></dt>
+                <dd>
+                    <span>{{ signatureLevel.level1 }}</span>
+                </dd>
+                <dt><span jhiTranslate="signatureApplicationApp.signatureLevel.level2">Level 2</span></dt>
+                <dd>
+                    <span>{{ signatureLevel.level2 }}</span>
+                </dd>
+                <dt><span jhiTranslate="signatureApplicationApp.signatureLevel.level3">Level 3</span></dt>
+                <dd>
+                    <span>{{ signatureLevel.level3 }}</span>
+                </dd>
+                <dt><span jhiTranslate="signatureApplicationApp.signatureLevel.completed">Completed</span></dt>
+                <dd>
+                    <span>{{ signatureLevel.completed }}</span>
+                </dd>
+                <dt><span jhiTranslate="signatureApplicationApp.signatureLevel.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="signatureLevel.status">
+                        <a [routerLink]="['/status', signatureLevel.status?.id, 'view']">{{ signatureLevel.status?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/signature-level', signatureLevel.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

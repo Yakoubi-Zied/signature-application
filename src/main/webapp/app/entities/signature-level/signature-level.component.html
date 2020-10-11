@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="signatureApplicationApp.signatureLevel.home.title">Signature Levels</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-signature-level" [routerLink]="['/signature-level/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="signatureApplicationApp.signatureLevel.home.createLabel">
+            Create a new Signature Level
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="signatureLevels?.length === 0">
+        <span jhiTranslate="signatureApplicationApp.signatureLevel.home.notFound">No signatureLevels found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="signatureLevels && signatureLevels.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="signatureApplicationApp.signatureLevel.orgName">Org Name</span></th>
+                    <th scope="col" ><span jhiTranslate="signatureApplicationApp.signatureLevel.orgId">Org Id</span></th>
+                    <th scope="col" ><span jhiTranslate="signatureApplicationApp.signatureLevel.level1">Level 1</span></th>
+                    <th scope="col" ><span jhiTranslate="signatureApplicationApp.signatureLevel.level2">Level 2</span></th>
+                    <th scope="col" ><span jhiTranslate="signatureApplicationApp.signatureLevel.level3">Level 3</span></th>
+                    <th scope="col" ><span jhiTranslate="signatureApplicationApp.signatureLevel.status">Status</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let signatureLevel of signatureLevels ;trackBy: trackId">
+                    <td><a [routerLink]="['/signature-level', signatureLevel.id, 'view']">{{ signatureLevel.id }}</a></td>
+                    <td>{{ signatureLevel.orgName }}</td>
+                    <td>{{ signatureLevel.orgId }}</td>
+                    <td>{{ signatureLevel.level1 }}</td>
+                    <td>{{ signatureLevel.level2 }}</td>
+                    <td>{{ signatureLevel.level3 }}</td>
+                    <td>
+                        <div *ngIf="signatureLevel.status">
+                            <a [routerLink]="['/status', signatureLevel.status?.id, 'view']" >{{ signatureLevel.status?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/signature-level', signatureLevel.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/signature-level', signatureLevel.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(signatureLevel)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

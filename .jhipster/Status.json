@@ -1,0 +1,50 @@
+{
+  "name": "Status",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "StatusEnum",
+      "fieldValues": "NONE,ON_GOING,DONE,FAILED"
+    },
+    {
+      "fieldName": "exception",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "month",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "year",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalToCreate",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalCreated",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "signatureLevel",
+      "otherEntityRelationshipName": "status",
+      "relationshipName": "signatureLevels"
+    }
+  ],
+  "changelogDate": "20201011221316",
+  "entityTableName": "status",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,11 @@
+id;status;exception;exception_content_type;month;year;total_to_create;total_created
+1;ON_GOING;../fake-data/blob/hipster.png;image/png;4485;16869;59068;6887
+2;NONE;../fake-data/blob/hipster.png;image/png;62513;86123;71297;66656
+3;NONE;../fake-data/blob/hipster.png;image/png;62373;98399;4825;28630
+4;FAILED;../fake-data/blob/hipster.png;image/png;42623;54741;83992;97042
+5;ON_GOING;../fake-data/blob/hipster.png;image/png;8002;72929;86698;41817
+6;NONE;../fake-data/blob/hipster.png;image/png;23575;77458;1709;78860
+7;ON_GOING;../fake-data/blob/hipster.png;image/png;40747;67264;25447;62525
+8;DONE;../fake-data/blob/hipster.png;image/png;96055;39551;50916;18994
+9;ON_GOING;../fake-data/blob/hipster.png;image/png;21484;88950;2813;48515
+10;NONE;../fake-data/blob/hipster.png;image/png;29172;13241;43739;94611

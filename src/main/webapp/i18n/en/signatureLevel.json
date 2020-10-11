@@ -1,0 +1,28 @@
+{
+  "signatureApplicationApp": {
+    "signatureLevel": {
+      "home": {
+        "title": "Signature Levels",
+        "createLabel": "Create a new Signature Level",
+        "createOrEditLabel": "Create or edit a Signature Level",
+        "notFound": "No Signature Levels found"
+      },
+      "created": "A new Signature Level is created with identifier {{ param }}",
+      "updated": "A Signature Level is updated with identifier {{ param }}",
+      "deleted": "A Signature Level is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Signature Level {{ id }}?"
+      },
+      "detail": {
+        "title": "Signature Level"
+      },
+      "orgName": "Org Name",
+      "orgId": "Org Id",
+      "level1": "Level 1",
+      "level2": "Level 2",
+      "level3": "Level 3",
+      "completed": "Completed",
+      "status": "Status"
+    }
+  }
+}

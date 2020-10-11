@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-status-heading" jhiTranslate="signatureApplicationApp.status.home.createOrEditLabel">Create or edit a Status</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="signatureApplicationApp.status.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="NONE">{{ 'signatureApplicationApp.StatusEnum.NONE' | translate }}</option>
+                        <option value="ON_GOING">{{ 'signatureApplicationApp.StatusEnum.ON_GOING' | translate }}</option>
+                        <option value="DONE">{{ 'signatureApplicationApp.StatusEnum.DONE' | translate }}</option>
+                        <option value="FAILED">{{ 'signatureApplicationApp.StatusEnum.FAILED' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="signatureApplicationApp.status.exception" for="field_exception">Exception</label>
+                    <div>
+                        <div *ngIf="editForm.get('exception')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('exceptionContentType')!.value, editForm.get('exception')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{ editForm.get('exceptionContentType')!.value }}, {{ byteSize(editForm.get('exception')!.value) }}</span>
+                            <button type="button" (click)="editForm.patchValue({exception: null});editForm.patchValue({exceptionContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_exception" (change)="setFileData($event, 'exception', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="exception" id="field_exception"
+                           formControlName="exception"/>
+                    <input type="hidden" class="form-control" name="exceptionContentType" id="field_exceptionContentType"
+                           formControlName="exceptionContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="signatureApplicationApp.status.month" for="field_month">Month</label>
+                    <input type="number" class="form-control" name="month" id="field_month"
+                           formControlName="month"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="signatureApplicationApp.status.year" for="field_year">Year</label>
+                    <input type="number" class="form-control" name="year" id="field_year"
+                           formControlName="year"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="signatureApplicationApp.status.totalToCreate" for="field_totalToCreate">Total To Create</label>
+                    <input type="number" class="form-control" name="totalToCreate" id="field_totalToCreate"
+                           formControlName="totalToCreate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="signatureApplicationApp.status.totalCreated" for="field_totalCreated">Total Created</label>
+                    <input type="number" class="form-control" name="totalCreated" id="field_totalCreated"
+                           formControlName="totalCreated"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

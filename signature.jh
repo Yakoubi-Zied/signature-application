@@ -1,0 +1,23 @@
+
+entity SignatureLevel {
+	orgName String,
+    orgId String,
+    level1 Integer,
+    level2 Integer,
+    level3 Integer
+}
+
+enum StatusEnum {
+    DONE, ON_GOING, FAILED
+}
+
+entity Status {
+	status StatusEnum,
+    exception Blob,
+    month Integer,
+    year Integer
+}
+
+relationship OneToMany {
+	Status{signatureLevels} to SignatureLevel 
+}

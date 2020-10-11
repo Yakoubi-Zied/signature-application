@@ -1,0 +1,45 @@
+{
+  "name": "SignatureLevel",
+  "fields": [
+    {
+      "fieldName": "orgName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "level1",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "level2",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "level3",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "signatureLevels",
+      "relationshipName": "status",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201011215403",
+  "entityTableName": "signature_level",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

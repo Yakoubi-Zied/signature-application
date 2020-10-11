@@ -1,0 +1,10 @@
+{
+  "signatureApplicationApp": {
+    "StatusEnum": {
+      "null": "",
+      "DONE": "DONE",
+      "ON_GOING": "ON_GOING",
+      "FAILED": "FAILED"
+    }
+  }
+}
